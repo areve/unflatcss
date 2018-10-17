@@ -1,0 +1,141 @@
+/*! unflat.css v[AIV]{version}[/AIV] https://areve.github.io/unflatcss/ */
+
+/* unflat-default.scss */
+
+@import '../../node_modules/flatcss/flat.css';
+
+
+#modal-closed {
+  position: fixed;
+}
+
+.reveal {
+  position: relative;
+  outline: none;
+
+  > *:first-child { // the button
+    outline: none;
+    ~ div {
+      transition: opacity .3s;
+      z-index: 100;
+      visibility: hidden;
+      top: -9999px;
+      opacity: 0;
+    }
+    &:focus { // fallback for browsers without focus-within support
+       ~ div {
+        visibility: visible;
+        top: 0;
+        opacity: 1;
+      }
+    }
+  }
+
+  &:focus-within { // better for accessibility of menus than focus
+    > *:first-child { // the button
+      ~ div {
+        visibility: visible;
+        top: 0;
+        opacity: 1;
+      }
+    }
+  }
+  &.dropdown {
+    > *:first-child { 
+      ~ div {     
+        position: absolute; 
+      }
+      &:focus { 
+         ~ div {
+          top: 100%;
+        }
+      }
+    }
+  
+    &:focus-within { 
+      > *:first-child { 
+        ~ div {
+          top: 100%;
+        }
+      }
+    }
+  }
+
+  &.expand {
+    > *:first-child { 
+      ~ div {     
+        height: 0;
+      }
+      &:focus { 
+         ~ div {
+          top: 100%;
+          height: initial;
+        }
+      }
+    }
+  
+    &:focus-within { 
+      > *:first-child { 
+        ~ div {
+          top: 100%;
+          height: initial;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  outline: none;
+  visibility: hidden;
+  position: fixed;
+  top: -9999px;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity .3s;
+  z-index: 100;
+
+  > * {
+    background-color: white;
+    position: relative;
+    padding: 1em;
+    display: table;
+    top: 25%;
+    margin: auto auto;
+    width: fit-content;
+  }
+
+  &:before {
+    content: ' ';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &.show {
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  [aria-label="Close"] {
+    float: right;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1;
+}

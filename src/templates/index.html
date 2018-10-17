@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="Description" content="A collection of css only widgets, use these to extend flat.css">
+  <meta name="theme-color" content="#0074d9">
+  <title>flat.css</title>
+  <meta charset="utf-8">
+  <link href="unflat.css" rel="stylesheet" type="text/css" media="screen">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127468929-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-127468929-1');
+  </script>
+  <style>
+  .test-border {
+    box-shadow: inset 0 0 0 1px #ccc;
+  }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="./">Home</a>
+    </nav>
+
+    <h1>unflat.css</h1>
+    <blockquote>A collection of css only widgets, use these to extend flat.css</blockquote>
+    <p><a href="https://areve.github.io/flatcss/">flat.css</a> styles HTML5 elements only, it does not provide
+      composite components.</p>
+  </header>
+  <main>
+    <section>
+      <h2>Reveal</h2>
+      <figure>
+        <figcaption>Example reveal</figcaption>
+        <div class="reveal">
+          <button type="button">Reveal</button>
+          <div tabindex="0" role="region">
+            The reveal content goes here this content is unstyled
+          </div>
+        </div>
+      </figure>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Expand</h2>
+      <figure>
+        <figcaption>Example expand</figcaption>
+        <div class="reveal expand">
+          <button type="button">Expand</button>
+          <div tabindex="0" role="region">
+            The expand content goes here this content is unstyled
+          </div>
+        </div>
+      </figure>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Dropdown</h2>
+      <figure>
+        <figcaption>Example dropdown</figcaption>
+        <div class="reveal dropdown">
+          <button type="button">Dropdown</button>
+          <div tabindex="0" role="menu">
+            The dropdown content goes here this content is unstyled
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Modal</h2>
+      <figure>
+        <figcaption>Example modal</figcaption>
+
+        <div class="reveal">
+          <button type="button">Modal</button>
+          <div class="modal show" role="dialog" tabindex="0">
+            <fieldset>
+              <div>
+                <h2>Dialog</h2>
+                <p>Example dialog content</p>
+              </div>
+              <a href="#modal-closed" class="button negative" data-dismiss="modal" aria-label="Close">
+                &times;
+              </a>
+            </fieldset>
+          </div>
+        </div>
+        <div id="modal-closed"></div>
+
+      </figure>
+    </section>
+
+    <section>
+      <h2>Grid</h2>
+      <figure>
+        <figcaption>Example grid</figcaption>
+        <div class="row">
+          <div class="col test-border">Column</div>
+          <div class="col test-border">Column</div>
+          <div class="col test-border">Column</div>
+        </div>
+        <div class="row">
+          <div class="col test-border">Column</div>
+          <div class="col test-border">Column</div>
+        </div>
+      </figure>
+    </section>
+
+  </main>
+</body>
+
+</html>
