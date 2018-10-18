@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="Description" content="A collection of css only widgets, use these to extend flat.css">
   <meta name="theme-color" content="#0074d9">
-  <title>flat.css</title>
+  <title>unflat.css</title>
   <meta charset="utf-8">
   <link href="unflat.css" rel="stylesheet" type="text/css" media="screen">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127468929-1"></script>
@@ -18,7 +18,7 @@
     gtag('config', 'UA-127468929-1');
   </script>
   <style>
-  .test-border {
+    .test-border {
     box-shadow: inset 0 0 0 1px #ccc;
   }
   </style>
@@ -31,69 +31,57 @@
     </nav>
 
     <h1>unflat.css</h1>
-    <blockquote>A collection of css only widgets, use these to extend flat.css</blockquote>
+    <blockquote>A <mark>currently experimental</mark> collection of css only widgets, use these to extend flat.css</blockquote>
     <p><a href="https://areve.github.io/flatcss/">flat.css</a> styles HTML5 elements only, it does not provide
       composite components.</p>
+    <p>These are all intended to have really simple flexible HTML, HTML is
+      more of a priority than zero javascript. For example javascript should be used to add or remove the
+      `show` class to show or hide an element. Whilst the elements do not require javascript at the moment but <em>may</em> in the future. <em>(As an example the Modal renders here fine but I can't think of a time when I've ever wanted a Modal in a non javascript enabled application)</em></p>
+    <ul>
+      <li><mark>More documentation will follow</mark></li>
+      <li><mark>More components to come</mark></li>
+    </ul>
   </header>
   <main>
     <section>
-      <h2>Reveal</h2>
+      <h2>Dropdown Menu</h2>
+      <p>The <code>reveal</code>, <code>dropdown</code> and <code>menu</code> classes used together can produce this component.</p>
       <figure>
-        <figcaption>Example reveal</figcaption>
-        <div class="reveal">
-          <button type="button">Reveal</button>
-          <div tabindex="0" role="region">
-            The reveal content goes here this content is unstyled
-          </div>
-        </div>
-      </figure>
-      </figure>
-    </section>
-
-    <section>
-      <h2>Expand</h2>
-      <figure>
-        <figcaption>Example expand</figcaption>
-        <div class="reveal expand">
-          <button type="button">Expand</button>
-          <div tabindex="0" role="region">
-            The expand content goes here this content is unstyled
-          </div>
-        </div>
-      </figure>
-      </figure>
-    </section>
-
-    <section>
-      <h2>Dropdown</h2>
-      <figure>
-        <figcaption>Example dropdown</figcaption>
+        <figcaption>Example dropdown with menu</figcaption>
         <div class="reveal dropdown">
-          <button type="button">Dropdown</button>
-          <div tabindex="0" role="menu">
-            The dropdown content goes here this content is unstyled
-          </div>
+          <button type="button">Menu</button>
+          <ul role="menu" class="menu">
+            <li><a href="#modal-closed">Menu Item</a></li>
+            <li><a href="#modal-closed">Another Menu Item</a></li>
+            <li><a href="#modal-closed">Yet Another Item</a></li>
+          </ul>
         </div>
       </figure>
     </section>
 
     <section>
       <h2>Modal</h2>
+      <p>The <code>reveal</code> and <code>modal</code> classes used together can produce this component.</p>
+      <p><mark>This modal is best when used with some javascript, more explaination required.</mark></p>
+      <p>This example page uses <code>reveal</code> to show this dialog, and requires an element on the page with <code>id="modal-closed"</code> to close it. Instead in most applications I recommend you add some javascript to add and remove the <code>show</code> class. <mark>example required</mark></p>
       <figure>
         <figcaption>Example modal</figcaption>
 
         <div class="reveal">
           <button type="button">Modal</button>
-          <div class="modal show" role="dialog" tabindex="0">
-            <fieldset>
-              <div>
+          <div class="modal" role="dialog" tabindex="0">
+            <figure>
+              <header>
                 <h2>Dialog</h2>
-                <p>Example dialog content</p>
+              </header>
+              <div>
+                <p>Example content here</p>
+                <a class="button" href="#modal-closed">Dismiss</a>
               </div>
               <a href="#modal-closed" class="button negative" data-dismiss="modal" aria-label="Close">
                 &times;
               </a>
-            </fieldset>
+            </figure>
           </div>
         </div>
         <div id="modal-closed"></div>
@@ -103,17 +91,119 @@
 
     <section>
       <h2>Grid</h2>
+      <p>A really lightweight grid, add <code>class="row"</code> to a class for it to be a continer. Then add <code>class="column"</code>
+        to content you want to column to fill the space. Other elements will behave as columns but not be stretchy.
+        When horizontal space is limited it will just use one or two columns.</p>
+
       <figure>
         <figcaption>Example grid</figcaption>
+
         <div class="row">
-          <div class="col test-border">Column</div>
-          <div class="col test-border">Column</div>
-          <div class="col test-border">Column</div>
+          <figure class="column">column</figure>
+          <figure class="column">column</figure>
         </div>
+
         <div class="row">
-          <div class="col test-border">Column</div>
-          <div class="col test-border">Column</div>
+          <figure class="column">column</figure>
+          <figure class="column">all elements in a row match the height, of the tallest in that row
+          </figure>
+          <figure class="column">
+            <div>a</div>
+            <div>taller</div>
+            <div>column</div>
+          </figure>
         </div>
+
+        <div class="row">
+          <figure class="column">a single column</figure>
+        </div>
+
+        <div class="row">
+          <figure>element</figure>
+          <figure>a element with more content in it</figure>
+          <figure class="column">column</figure>
+          <figure>another wide element</figure>
+        </div>
+
+        <div class="row">
+          <figure>
+            <div>a</div>
+            <div>taller</div>
+            <div>element</div>
+          </figure>
+          <figure>element</figure>
+          <figure class="column">this column will matche the height of other elements in its row</figure>
+          <figure>element</figure>
+        </div>
+
+        <div class="row">
+          <figure>
+            <div>a</div>
+            <div>taller</div>
+            <div>element</div>
+          </figure>
+          <figure>this is a wider element</figure>
+          <figure>this is a wider element</figure>
+          <figure class="column">this is a wider column</figure>
+          <figure>last element</figure>
+        </div>
+      </figure>
+    </section>
+
+
+    <section>
+      <h2>Expand</h2>
+      <p>A <code>reveal expand</code> will expand the content in place.</p>
+      <figure>
+        <figcaption>Example expand</figcaption>
+        <p></p>
+        <div class="reveal expand">
+          <button type="button">Expand</button>
+          <div role="document">
+            The expand content goes here this content is unstyled
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section>
+        <h2>Reveal</h2>
+        <p>A <code>reveal</code> is not intended for use on its own, this is what it does. It leaves preallocated space for the hidden content.</p>
+        <figure>
+          <figcaption>Example reveal</figcaption>
+          <div class="reveal">
+            <button type="button">Reveal</button>
+            <div role="document">
+              The reveal content goes here this content is unstyled
+            </div>
+          </div>
+        </figure>
+      </section>
+
+    <section>
+      <h2>Dropdown</h2>
+      <p>A <code>reveal dropdown</code> can drop down anything, if the dropdown is unstyled it doesn't look that good, here is an example.</p>
+      <figure>
+        <figcaption>Example dropdown</figcaption>
+        <div class="reveal dropdown">
+          <button type="button">Dropdown</button>
+          <div role="menu">
+            Unstyled content
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Menu</h2>
+      <p>Menu is intended to be used with <code>reveal</code> and  <code>dropdown</code> but it exists as a component on its own.</p>
+      <figure>
+        <figcaption>Example menu</figcaption>
+        <ul role="menu" class="menu">
+          <li><a href="#modal-closed">Menu Item</a></li>
+          <li><a href="#modal-closed">Another Menu Item</a></li>
+          <li><a href="#modal-closed">Yet Another Item</a></li>
+        </ul>
       </figure>
     </section>
 

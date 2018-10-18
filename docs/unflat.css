@@ -586,7 +586,7 @@ textarea,
   position: absolute;
 }
 
-/*! flat.css v1.0.20 https://areve.github.io/flatcss/ */
+/*! flat.css v1.0.21 https://areve.github.io/flatcss/ */
 /* flat-default.scss */
 /* _unsanitize.scss */
 nav ol,
@@ -1701,7 +1701,8 @@ p, pre, address, blockquote {
 
 pre {
   padding: 1em 1.5em;
-  background-color: #eed; }
+  background-color: #eed;
+  overflow-x: auto; }
   pre code {
     padding: 0; }
 
@@ -2092,33 +2093,33 @@ th {
   outline: none; }
   .reveal > *:first-child {
     outline: none; }
-    .reveal > *:first-child ~ div {
+    .reveal > *:first-child + * {
       -webkit-transition: opacity .3s;
       transition: opacity .3s;
       z-index: 100;
       visibility: hidden;
       top: -9999px;
       opacity: 0; }
-    .reveal > *:first-child:focus ~ div {
+    .reveal > *:first-child:focus + * {
       visibility: visible;
       top: 0;
       opacity: 1; }
-  .reveal:focus-within > *:first-child ~ div {
+  .reveal:focus-within > *:first-child + * {
     visibility: visible;
     top: 0;
     opacity: 1; }
-  .reveal.dropdown > *:first-child ~ div {
+  .reveal.dropdown > *:first-child + * {
     position: absolute; }
-  .reveal.dropdown > *:first-child:focus ~ div {
+  .reveal.dropdown > *:first-child:focus + * {
     top: 100%; }
-  .reveal.dropdown:focus-within > *:first-child ~ div {
+  .reveal.dropdown:focus-within > *:first-child + * {
     top: 100%; }
-  .reveal.expand > *:first-child ~ div {
+  .reveal.expand > *:first-child + * {
     height: 0; }
-  .reveal.expand > *:first-child:focus ~ div {
+  .reveal.expand > *:first-child:focus + * {
     top: 100%;
     height: initial; }
-  .reveal.expand:focus-within > *:first-child ~ div {
+  .reveal.expand:focus-within > *:first-child + * {
     top: 100%;
     height: initial; }
 
@@ -2134,6 +2135,13 @@ th {
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
   z-index: 100; }
+  .modal header {
+    height: 4em;
+    padding: 1em 4em 1em 1em;
+    margin: -1em;
+    border-radius: .5em; }
+    .modal header * {
+      margin: 0; }
   .modal > * {
     background-color: white;
     position: relative;
@@ -2162,6 +2170,24 @@ th {
     top: 1em;
     right: 1em; }
 
+.menu {
+  margin: 1em 0;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 0.33333em;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  list-style: none;
+  background-color: #fff;
+  margin: 0;
+  padding: 0; }
+  .menu a {
+    padding: 0.5em;
+    display: block;
+    color: #111; }
+    .menu a:hover {
+      background-color: rgba(17, 17, 17, 0.1); }
+
 .row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2169,11 +2195,39 @@ th {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-
-.col {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1; }
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 -.5em; }
+  .row > * {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: .5em; }
+  .row > .column {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 10%;
+        -ms-flex: 1 1 10%;
+            flex: 1 1 10%;
+    width: initial; }
+  @media all and (max-width: 800px) {
+    .row > * {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 1 10%;
+          -ms-flex: 1 1 10%;
+              flex: 1 1 10%;
+      min-width: 34%; } }
+  @media all and (max-width: 500px) {
+    .row {
+      display: block;
+      margin: 0; }
+      .row > * {
+        margin: 1em 0;
+        width: 100%; } }
 
