@@ -82,8 +82,7 @@
   }
 }
 
-// TODO side and modal share a lot of code, deduplicate
-.side {
+@mixin overlay {
   outline: none;
   visibility: hidden;
   position: fixed;
@@ -104,6 +103,16 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
   }
+
+  &.show {
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.side {
+  @include overlay;
 
   > * {
     background-color: white;
@@ -117,35 +126,10 @@
     height: 100%;
     margin: 0 0 0 20%;
   }
-
-  &.show {
-    top: 0;
-    visibility: visible;
-    opacity: 1;
-  }
 }
 
 .modal {
-  outline: none;
-  visibility: hidden;
-  position: fixed;
-  top: -9999px;
-  left: 0;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity .3s;
-  z-index: 100;
-
-  header {
-    height: 4em;
-    padding: 1em 4em 1em 1em;
-    margin: -1em;
-    border-radius: .5em;
-    * {
-      margin: 0;
-    }
-  }
+  @include overlay;
 
   > * {
     background-color: white;
@@ -157,20 +141,14 @@
     width: fit-content;
   }
 
-  &:before {
-    content: ' ';
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  &.show {
-    top: 0;
-    visibility: visible;
-    opacity: 1;
+  header {
+    height: 4em;
+    padding: 1em 4em 1em 1em;
+    margin: -1em;
+    border-radius: .5em;
+    * {
+      margin: 0;
+    }
   }
 
   [aria-label="Close"] {
@@ -180,7 +158,6 @@
     right: 1em;
   }
 }
-
 
 .menu {
   @include flat-figure-clone;

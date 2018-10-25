@@ -2143,6 +2143,10 @@ th {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); }
+  .side.show {
+    top: 0;
+    visibility: visible;
+    opacity: 1; }
   .side > * {
     background-color: white;
     position: fixed;
@@ -2156,10 +2160,6 @@ th {
     max-width: 90%;
     height: 100%;
     margin: 0 0 0 20%; }
-  .side.show {
-    top: 0;
-    visibility: visible;
-    opacity: 1; }
 
 .modal {
   outline: none;
@@ -2173,23 +2173,6 @@ th {
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
   z-index: 100; }
-  .modal header {
-    height: 4em;
-    padding: 1em 4em 1em 1em;
-    margin: -1em;
-    border-radius: .5em; }
-    .modal header * {
-      margin: 0; }
-  .modal > * {
-    background-color: white;
-    position: relative;
-    padding: 1em;
-    display: table;
-    top: 25%;
-    margin: auto auto;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content; }
   .modal:before {
     content: ' ';
     position: fixed;
@@ -2202,6 +2185,23 @@ th {
     top: 0;
     visibility: visible;
     opacity: 1; }
+  .modal > * {
+    background-color: white;
+    position: relative;
+    padding: 1em;
+    display: table;
+    top: 25%;
+    margin: auto auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content; }
+  .modal header {
+    height: 4em;
+    padding: 1em 4em 1em 1em;
+    margin: -1em;
+    border-radius: .5em; }
+    .modal header * {
+      margin: 0; }
   .modal [aria-label="Close"] {
     float: right;
     position: absolute;
