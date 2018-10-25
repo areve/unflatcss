@@ -3,5 +3,7 @@
   "search.exclude": {
     "docs": true,
     "dist": true
-  }
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true
 }

@@ -5,12 +5,13 @@
 @import '../../node_modules/flatcss/flat.css';
 
 
-@mixin flat-figure-clone {
-  margin: 1em 0;
+@mixin flat-figure-clone { // TODO can I have a class in flat.css to extend?
+  margin-top: 1em;
+  margin-bottom: 1em;
   border: 1px solid #ccc;
-  padding: 1em; 
+  padding: 1em;
   border-radius: 0.33333em;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3); 
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -24,7 +25,7 @@
 
   > *:first-child { // the button
     outline: none;
-    + * {
+    ~ * {
       transition: opacity .3s;
       z-index: 100;
       visibility: hidden;
@@ -32,7 +33,7 @@
       opacity: 0;
     }
     &:focus { // fallback for browsers without focus-within support
-       + * {
+       ~ * {
         visibility: visible;
         top: 0;
         opacity: 1;
@@ -42,55 +43,85 @@
 
   &:focus-within { // better for accessibility of menus than focus
     > *:first-child { // the button
-      + * {
+      ~ * {
         visibility: visible;
         top: 0;
         opacity: 1;
       }
     }
   }
+
   &.dropdown {
-    > *:first-child { 
-      + * {     
-        position: absolute; 
+    > *:first-child {
+      ~ * {
+        position: absolute;
       }
-      &:focus { 
-         + * {
-          top: 100%;
-        }
+      &:focus ~ * {
+        top: 100%;
       }
     }
-  
-    &:focus-within { 
-      > *:first-child { 
-        + * {
-          top: 100%;
-        }
-      }
+    &:focus-within > *:first-child ~ * {
+      top: 100%;
     }
   }
 
   &.expand {
-    > *:first-child { 
-      + * {     
+    > *:first-child {
+      ~ * {
         height: 0;
       }
-      &:focus { 
-         + * {
-          top: 100%;
-          height: initial;
-        }
+      &:focus ~ * {
+        top: 100%;
+        height: initial;
       }
     }
-  
-    &:focus-within { 
-      > *:first-child { 
-        + * {
-          top: 100%;
-          height: initial;
-        }
-      }
+    &:focus-within > *:first-child ~ * {
+      top: 100%;
+      height: initial;
     }
+  }
+}
+
+// TODO side and modal share a lot of code, deduplicate
+.side {
+  outline: none;
+  visibility: hidden;
+  position: fixed;
+  top: -9999px;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity .3s;
+  z-index: 100;
+
+  &:before {
+    content: ' ';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  > * {
+    background-color: white;
+    position: fixed;
+    padding: 1em;
+    display: block;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    max-width: 90%;
+    height: 100%;
+    margin: 0 0 0 20%;
+  }
+
+  &.show {
+    top: 0;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -155,7 +186,8 @@
   @include flat-figure-clone;
   list-style: none;
   background-color: #fff;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0;
   a {
     padding: 0.5em;

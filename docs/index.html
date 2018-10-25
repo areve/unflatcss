@@ -36,7 +36,9 @@
       composite components.</p>
     <p>These are all intended to have really simple flexible HTML, HTML is
       more of a priority than zero javascript. For example javascript should be used to add or remove the
-      `show` class to show or hide an element. Whilst the elements do not require javascript at the moment but <em>may</em> in the future. <em>(As an example the Modal renders here fine but I can't think of a time when I've ever wanted a Modal in a non javascript enabled application)</em></p>
+      `show` class to show or hide an element. Whilst the elements do not require javascript at the moment but <em>may</em>
+      in the future. <em>(As an example the Modal renders here fine but I can't think of a time when I've ever wanted a
+        Modal in a non javascript enabled application)</em></p>
     <ul>
       <li><mark>More documentation will follow</mark></li>
       <li><mark>More components to come</mark></li>
@@ -45,7 +47,8 @@
   <main>
     <section>
       <h2>Dropdown Menu</h2>
-      <p>The <code>reveal</code>, <code>dropdown</code> and <code>menu</code> classes used together can produce this component.</p>
+      <p>The <code>reveal</code>, <code>dropdown</code> and <code>menu</code> classes used together can produce this
+        component.</p>
       <figure>
         <figcaption>Example dropdown with menu</figcaption>
         <div class="reveal dropdown">
@@ -63,7 +66,9 @@
       <h2>Modal</h2>
       <p>The <code>reveal</code> and <code>modal</code> classes used together can produce this component.</p>
       <p><mark>This modal is best when used with some javascript, more explaination required.</mark></p>
-      <p>This example page uses <code>reveal</code> to show this dialog, and requires an element on the page with <code>id="modal-closed"</code> to close it. Instead in most applications I recommend you add some javascript to add and remove the <code>show</code> class. <mark>example required</mark></p>
+      <p>This example page uses <code>reveal</code> to show this dialog, and requires an element on the page with <code>id="modal-closed"</code>
+        to close it. Instead in most applications I recommend you add some javascript to add and remove the <code>show</code>
+        class. <mark>example required</mark></p>
       <figure>
         <figcaption>Example modal</figcaption>
 
@@ -86,6 +91,26 @@
         </div>
         <div id="modal-closed"></div>
 
+      </figure>
+    </section>
+
+    <section>
+      <h2>Side Navigation</h2>
+      <p>The <code>reveal</code>, <code>side</code> and <code>menu</code> classes used together can produce this
+        component.</p>
+      <p><mark>On larger screens the menu should may want to stay open</mark></p>
+      <figure>
+        <figcaption>Example dropdown with menu</figcaption>
+        <div class="reveal">
+          <button type="button">Side</button>
+          <nav class="side" role="navigation">
+            <ul class="menu" tabindex="0">
+              <li><a href="#modal-closed">Menu Item</a></li>
+              <li><a href="#modal-closed">Another Menu Item</a></li>
+              <li><a href="#modal-closed">Yet Another Item</a></li>
+            </ul>
+          </nav>
+        </div>
       </figure>
     </section>
 
@@ -167,22 +192,24 @@
     </section>
 
     <section>
-        <h2>Reveal</h2>
-        <p>A <code>reveal</code> is not intended for use on its own, this is what it does. It leaves preallocated space for the hidden content.</p>
-        <figure>
-          <figcaption>Example reveal</figcaption>
-          <div class="reveal">
-            <button type="button">Reveal</button>
-            <div role="document">
-              The reveal content goes here this content is unstyled
-            </div>
+      <h2>Reveal</h2>
+      <p>A <code>reveal</code> is not intended for use on its own, this is what it does. It leaves preallocated space
+        for the hidden content.</p>
+      <figure>
+        <figcaption>Example reveal</figcaption>
+        <div class="reveal">
+          <button type="button">Reveal</button>
+          <div role="document">
+            The reveal content goes here this content is unstyled
           </div>
-        </figure>
-      </section>
+        </div>
+      </figure>
+    </section>
 
     <section>
       <h2>Dropdown</h2>
-      <p>A <code>reveal dropdown</code> can drop down anything, if the dropdown is unstyled it doesn't look that good, here is an example.</p>
+      <p>A <code>reveal dropdown</code> can drop down anything, if the dropdown is unstyled it doesn't look that good,
+        here is an example.</p>
       <figure>
         <figcaption>Example dropdown</figcaption>
         <div class="reveal dropdown">
@@ -196,7 +223,8 @@
 
     <section>
       <h2>Menu</h2>
-      <p>Menu is intended to be used with <code>reveal</code> and  <code>dropdown</code> but it exists as a component on its own.</p>
+      <p>Menu is intended to be used with <code>reveal</code> and <code>dropdown</code> but it exists as a component on
+        its own.</p>
       <figure>
         <figcaption>Example menu</figcaption>
         <ul role="menu" class="menu">

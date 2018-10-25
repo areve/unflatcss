@@ -2093,35 +2093,73 @@ th {
   outline: none; }
   .reveal > *:first-child {
     outline: none; }
-    .reveal > *:first-child + * {
+    .reveal > *:first-child ~ * {
       -webkit-transition: opacity .3s;
       transition: opacity .3s;
       z-index: 100;
       visibility: hidden;
       top: -9999px;
       opacity: 0; }
-    .reveal > *:first-child:focus + * {
+    .reveal > *:first-child:focus ~ * {
       visibility: visible;
       top: 0;
       opacity: 1; }
-  .reveal:focus-within > *:first-child + * {
+  .reveal:focus-within > *:first-child ~ * {
     visibility: visible;
     top: 0;
     opacity: 1; }
-  .reveal.dropdown > *:first-child + * {
+  .reveal.dropdown > *:first-child ~ * {
     position: absolute; }
-  .reveal.dropdown > *:first-child:focus + * {
+  .reveal.dropdown > *:first-child:focus ~ * {
     top: 100%; }
-  .reveal.dropdown:focus-within > *:first-child + * {
+  .reveal.dropdown:focus-within > *:first-child ~ * {
     top: 100%; }
-  .reveal.expand > *:first-child + * {
+  .reveal.expand > *:first-child ~ * {
     height: 0; }
-  .reveal.expand > *:first-child:focus + * {
+  .reveal.expand > *:first-child:focus ~ * {
     top: 100%;
     height: initial; }
-  .reveal.expand:focus-within > *:first-child + * {
+  .reveal.expand:focus-within > *:first-child ~ * {
     top: 100%;
     height: initial; }
+
+.side {
+  outline: none;
+  visibility: hidden;
+  position: fixed;
+  top: -9999px;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  z-index: 100; }
+  .side:before {
+    content: ' ';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); }
+  .side > * {
+    background-color: white;
+    position: fixed;
+    padding: 1em;
+    display: block;
+    top: 0;
+    right: 0;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 90%;
+    height: 100%;
+    margin: 0 0 0 20%; }
+  .side.show {
+    top: 0;
+    visibility: visible;
+    opacity: 1; }
 
 .modal {
   outline: none;
@@ -2171,7 +2209,8 @@ th {
     right: 1em; }
 
 .menu {
-  margin: 1em 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border: 1px solid #ccc;
   padding: 1em;
   border-radius: 0.33333em;
@@ -2179,7 +2218,8 @@ th {
           box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   list-style: none;
   background-color: #fff;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0; }
   .menu a {
     padding: 0.5em;
